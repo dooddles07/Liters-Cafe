@@ -1,0 +1,3 @@
+# sharp is Next.js's image optimiser and needs its native build step.
+allowBuilds:
+  sharp: true
