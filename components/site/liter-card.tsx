@@ -6,7 +6,7 @@ import { getCategory } from "@/lib/menu";
 import { peso } from "@/lib/utils";
 import { revealItem } from "./reveal";
 
-export function LitreCard({ item }: { item: MenuItem }) {
+export function LiterCard({ item }: { item: MenuItem }) {
   return (
     <motion.div
       variants={revealItem}

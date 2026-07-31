@@ -8,10 +8,10 @@ const notes = [
   },
   {
     title: "Those ceiling lights",
-    body: "Hand-built wooden box lamps in rows. It is the reason the room photographs the way it does after dark.",
+    body: "Hand-built wooden box lamps in rows. It's why the room photographs the way it does after dark.",
   },
   {
-    title: "Priced for the neighbourhood",
+    title: "Priced for the neighborhood",
     body: "\"Most decent affordable meals in San Felipe area.\" Most plates land between ₱129 and ₱199.",
   },
 ];

@@ -33,6 +33,6 @@ export const expectedImages = [
   { file: "pizza.jpg", use: "Featured - pizza" },
   { file: "coffee-lineup.jpg", use: "Espresso bar" },
   { file: "fruit-tea.jpg", use: "Fruit tea and lemonade" },
-  { file: "brown-sugar.jpg", use: "Milk tea / By the Litre" },
+  { file: "brown-sugar.jpg", use: "Milk tea / By the Liter" },
   { file: "longganisa.jpg", use: "Breakfast plate" },
 ] as const;

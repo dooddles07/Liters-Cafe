@@ -20,29 +20,29 @@ import { ButtonLink, Button } from "@/components/ui/button";
 import { cn, peso } from "@/lib/utils";
 import { Reveal } from "./reveal";
 
-const flavours = itemsByCategory("milk-tea");
+const flavors = itemsByCategory("milk-tea");
 const SIZES: SizeKey[] = ["16oz", "22oz", "1L"];
 
 export function DrinkBuilder() {
-  const [flavourId, setFlavourId] = useState(flavours[1].id); // Wintermelon
+  const [flavorId, setFlavorId] = useState(flavors[1].id); // Wintermelon
   const [size, setSize] = useState<SizeKey>("22oz");
   const [seriesId, setSeriesId] = useState<string | null>(null);
   const [sinkerIds, setSinkerIds] = useState<string[]>([]);
 
-  const flavour = flavours.find((f) => f.id === flavourId)!;
+  const flavor = flavors.find((f) => f.id === flavorId)!;
   const chosenSeries = series.find((s) => s.id === seriesId) ?? null;
   const chosenSinkers = sinkers.filter((s) => sinkerIds.includes(s.id));
 
   const total = useMemo(() => {
-    const base = flavour.prices?.[size] ?? 0;
+    const base = flavor.prices?.[size] ?? 0;
     const seriesCost = chosenSeries?.price ?? 0;
     const sinkerCost = chosenSinkers.reduce((sum, s) => sum + s.price, 0);
     return base + seriesCost + sinkerCost;
-  }, [flavour, size, chosenSeries, chosenSinkers]);
+  }, [flavor, size, chosenSeries, chosenSinkers]);
 
   const orderText = [
     `Hi Liters! I'd like to order:`,
-    `${flavour.name} milk tea (${sizeLabels[size]})`,
+    `${flavor.name} milk tea (${sizeLabels[size]})`,
     chosenSeries ? `Series: ${chosenSeries.name}` : null,
     chosenSinkers.length
       ? `Sinkers: ${chosenSinkers.map((s) => s.name).join(", ")}`
@@ -53,7 +53,7 @@ export function DrinkBuilder() {
     .join("\n");
 
   const reset = () => {
-    setFlavourId(flavours[1].id);
+    setFlavorId(flavors[1].id);
     setSize("22oz");
     setSeriesId(null);
     setSinkerIds([]);
@@ -67,27 +67,27 @@ export function DrinkBuilder() {
       <div className="container-page">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            Build it your way
+            Before you order
           </p>
           <h2 className="mt-4 text-balance font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            Price your milk tea before you go
+            Work out the price of your milk tea
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            Real prices off the board. Pick a flavour, a size, and whatever you
-            want in the bottom of the cup.
+            Same prices as the board in store. Pick a flavor and a size, then
+            add whatever you want sitting at the bottom of the cup.
           </p>
         </Reveal>
 
         <Reveal delay={0.1} className="mx-auto mt-12 max-w-4xl">
           <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
             <div className="space-y-7 rounded-2xl border border-border bg-card p-5 sm:p-7">
-              <Field label="Flavour" hint={`${flavours.length} options`}>
+              <Field label="Flavor" hint={`${flavors.length} options`}>
                 <div className="flex flex-wrap gap-2">
-                  {flavours.map((f) => (
+                  {flavors.map((f) => (
                     <Chip
                       key={f.id}
-                      selected={f.id === flavourId}
-                      onClick={() => setFlavourId(f.id)}
+                      selected={f.id === flavorId}
+                      onClick={() => setFlavorId(f.id)}
                     >
                       {f.name}
                     </Chip>
@@ -126,7 +126,7 @@ export function DrinkBuilder() {
                             : "text-muted-foreground",
                         )}
                       >
-                        {peso(flavour.prices?.[s] ?? 0)}
+                        {peso(flavor.prices?.[s] ?? 0)}
                       </span>
                     </button>
                   ))}
@@ -179,14 +179,14 @@ export function DrinkBuilder() {
                 </p>
 
                 <p className="mt-3 font-display text-2xl leading-tight">
-                  {flavour.name}
+                  {flavor.name}
                 </p>
                 <p className="text-sm text-muted-foreground">
                   {sizeLabels[size]} milk tea
                 </p>
 
                 <dl className="mt-6 space-y-2 border-t border-border pt-5 text-sm">
-                  <Line label={`Base (${sizeLabels[size]})`} value={flavour.prices?.[size] ?? 0} />
+                  <Line label={`Base (${sizeLabels[size]})`} value={flavor.prices?.[size] ?? 0} />
                   {chosenSeries && (
                     <Line label={chosenSeries.name} value={chosenSeries.price} />
                   )}

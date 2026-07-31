@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 const phrases = [
   "Crave It? We Got It!",
-  "Milk tea by the litre",
+  "Milk tea by the liter",
   "Rice meals all day",
   "Naga City",
   "Open late on weekends",

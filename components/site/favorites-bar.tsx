@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Heart, Send, X } from "lucide-react";
 import { items, lowestPrice, sizeLabels, type SizeKey } from "@/lib/menu";
 import { messengerLink } from "@/lib/site";
-import { useFavourites } from "@/lib/use-favorites";
+import { useFavorites } from "@/lib/use-favorites";
 import { ButtonLink } from "@/components/ui/button";
 import { peso } from "@/lib/utils";
 
@@ -12,8 +12,8 @@ import { peso } from "@/lib/utils";
  * Floats up once the visitor has saved something. Turns the saved list into
  * a Messenger message, which is the only "checkout" this site has.
  */
-export function FavouritesBar() {
-  const { ids, clear, ready } = useFavourites();
+export function FavoritesBar() {
+  const { ids, clear, ready } = useFavorites();
 
   const saved = items.filter((i) => ids.includes(i.id));
   const estimate = saved.reduce((sum, item) => sum + lowestPrice(item), 0);

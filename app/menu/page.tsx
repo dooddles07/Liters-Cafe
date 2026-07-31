@@ -8,7 +8,7 @@ import { MenuCards } from "@/components/site/menu-cards";
 
 export const metadata: Metadata = {
   title: "Menu",
-  description: `The full Liters Cafe menu — ${menuStats.itemCount} items across rice meals, pizza, pasta, burgers, milk tea, frappes and espresso. Prices in Philippine pesos.`,
+  description: `All ${menuStats.itemCount} items on the Liters Cafe menu: rice meals, pizza, pasta, burgers, milk tea, frappes and espresso. Prices in Philippine pesos.`,
 };
 
 export default function MenuPage() {

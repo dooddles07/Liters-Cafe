@@ -3,9 +3,9 @@ import { Reveal } from "./reveal";
 
 /** The physical in-store menu, for anyone who wants to see the real thing. */
 const cards = [
-  { file: "drinks-1.jpg", label: "Drinks — milk tea, fruit tea, lemonade" },
-  { file: "drinks-2.jpg", label: "Drinks — frappe, espresso, yogurt" },
-  { file: "snacks.jpg", label: "Snacks — pizza, burgers, pasta, fries" },
+  { file: "drinks-1.jpg", label: "Drinks: milk tea, fruit tea, lemonade" },
+  { file: "drinks-2.jpg", label: "Drinks: frappe, espresso, yogurt" },
+  { file: "snacks.jpg", label: "Snacks: pizza, burgers, pasta, fries" },
   { file: "rice-meals.jpg", label: "Rice meals" },
 ];
 

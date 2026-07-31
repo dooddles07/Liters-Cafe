@@ -12,7 +12,7 @@ import { Wordmark } from "./wordmark";
 
 const links = [
   { href: "/#story", label: "Our Place" },
-  { href: "/#by-the-litre", label: "By the Litre" },
+  { href: "/#by-the-liter", label: "By the Liter" },
   { href: "/menu", label: "Menu" },
   { href: "/#reviews", label: "Reviews" },
   { href: "/#visit", label: "Visit" },

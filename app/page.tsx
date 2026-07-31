@@ -1,7 +1,7 @@
 import { Hero } from "@/components/site/hero";
 import { Marquee } from "@/components/site/marquee";
 import { Story } from "@/components/site/story";
-import { LitreSection } from "@/components/site/litre-section";
+import { LiterSection } from "@/components/site/liter-section";
 import { Featured } from "@/components/site/featured";
 import { DrinkBuilder } from "@/components/site/drink-builder";
 import { Gallery } from "@/components/site/gallery";
@@ -15,7 +15,7 @@ export default function HomePage() {
       <Hero />
       <Marquee />
       <Story />
-      <LitreSection />
+      <LiterSection />
       <Featured />
       <DrinkBuilder />
       <Gallery />

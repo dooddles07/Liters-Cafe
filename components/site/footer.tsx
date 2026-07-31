@@ -9,7 +9,7 @@ const columns = [
     heading: "Explore",
     links: [
       { href: "/menu", label: "Full menu" },
-      { href: "/#by-the-litre", label: "By the litre" },
+      { href: "/#by-the-liter", label: "By the liter" },
       { href: "/#build", label: "Build your drink" },
       { href: "/#gallery", label: "Gallery" },
     ],
@@ -34,7 +34,7 @@ export function Footer() {
               <Wordmark />
             </div>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-primary-foreground/70">
-              {site.tagline} Rice meals, pizza, pasta and milk tea by the litre
+              {site.tagline} Rice meals, pizza, pasta and milk tea by the liter
               in {site.address.city}.
             </p>
             <OpenBadge className="mt-6" />

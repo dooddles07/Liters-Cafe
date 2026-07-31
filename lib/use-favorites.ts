@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-const KEY = "liters:favourites";
-const EVENT = "liters:favourites-changed";
+const KEY = "liters:favorites";
+const EVENT = "liters:favorites-changed";
 
 function read(): string[] {
   if (typeof window === "undefined") return [];
@@ -20,7 +20,7 @@ function read(): string[] {
  * refresh. Every mounted copy of the hook stays in sync through a custom
  * event, and across tabs through `storage`.
  */
-export function useFavourites() {
+export function useFavorites() {
   const [ids, setIds] = useState<string[]>([]);
   const [ready, setReady] = useState(false);
 

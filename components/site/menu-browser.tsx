@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { MenuCard } from "./menu-card";
 import { RevealGroup } from "./reveal";
-import { FavouritesBar } from "./favourites-bar";
+import { FavoritesBar } from "./favorites-bar";
 
 type Filter = CategoryId | "all" | "popular";
 
@@ -66,7 +66,7 @@ export function MenuBrowser() {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search the menu — lasagna, matcha, sisig…"
+            placeholder="Try lasagna, matcha, sisig…"
             aria-label="Search the menu"
             className="h-12 w-full rounded-full border border-border bg-card pl-11 pr-11 text-sm placeholder:text-muted-foreground/70"
           />
@@ -120,8 +120,8 @@ export function MenuBrowser() {
           >
             <p className="font-display text-2xl">Nothing matched that</p>
             <p className="mx-auto mt-3 max-w-sm text-sm text-muted-foreground">
-              Try a shorter word — “choco”, “chicken”, “tea” — or clear the
-              filters to see the whole board.
+              Try a shorter word. &ldquo;Choco&rdquo;, &ldquo;chicken&rdquo;,
+              &ldquo;tea&rdquo;. Or clear the filters and see the whole board.
             </p>
             <Button variant="outline" onClick={clearAll} className="mt-6">
               Show everything
@@ -181,7 +181,7 @@ export function MenuBrowser() {
         )}
       </AnimatePresence>
 
-      <FavouritesBar />
+      <FavoritesBar />
     </>
   );
 }

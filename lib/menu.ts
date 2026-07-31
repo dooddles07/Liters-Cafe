@@ -49,7 +49,7 @@ export const categories: Category[] = [
     id: "rice-meals",
     name: "Rice Meals",
     group: "Food",
-    blurb: "Served with rice and a side. The heart of the menu.",
+    blurb: "Served with rice and a side. Most people order from here.",
   },
   { id: "pizza", name: "Pizza", group: "Food", blurb: "Hand-topped, oven-baked." },
   { id: "burger", name: "Burgers", group: "Food", blurb: "Stacked and griddled to order." },
@@ -61,7 +61,7 @@ export const categories: Category[] = [
     id: "milk-tea",
     name: "Milk Tea",
     group: "Drinks",
-    blurb: "Twelve flavours. Available by the full litre.",
+    blurb: "Twelve flavors. Available by the full liter.",
     sizes: ["16oz", "22oz", "1L"],
   },
   {
@@ -227,7 +227,7 @@ export const sinkers = [
 export const sizeLabels: Record<SizeKey, string> = {
   "16oz": "16 oz",
   "22oz": "22 oz",
-  "1L": "1 Litre",
+  "1L": "1 Liter",
   hot: "Hot",
   cold: "Iced",
 };
@@ -269,8 +269,8 @@ export function searchItems(query: string) {
 export const menuStats = {
   itemCount: items.length,
   categoryCount: categories.length,
-  /** Cheapest full litre on the board - the hook for the "By the Litre" pitch. */
-  cheapestLitre: Math.min(
+  /** Cheapest full liter on the board - the hook for the "By the Liter" pitch. */
+  cheapestLiter: Math.min(
     ...items.filter((i) => i.prices?.["1L"]).map((i) => i.prices!["1L"]!),
   ),
 };

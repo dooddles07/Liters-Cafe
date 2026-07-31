@@ -98,9 +98,9 @@ export function Hero() {
           {...rise(0.16)}
           className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
-          Rice meals, pizza, pasta and milk tea by the full litre — served under
+          Rice meals, pizza, pasta, and milk tea by the full liter, served under
           the plant wall on San Felipe Road. {menuStats.itemCount} things on the
-          board, and the lasagna is the one people keep writing about.
+          board. The lasagna is the one people keep writing about.
         </motion.p>
 
         <motion.div

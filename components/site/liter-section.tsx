@@ -2,19 +2,19 @@ import { items } from "@/lib/menu";
 import { peso } from "@/lib/utils";
 import { CafeImage } from "./cafe-image";
 import { Reveal, RevealGroup } from "./reveal";
-import { LitreCard } from "./litre-card";
+import { LiterCard } from "./liter-card";
 
-/** Everything on the board that comes in a full litre. */
-const litreDrinks = items
+/** Everything on the board that comes in a full liter. */
+const literDrinks = items
   .filter((i) => i.prices?.["1L"])
   .sort((a, b) => a.prices!["1L"]! - b.prices!["1L"]!);
 
-export function LitreSection() {
-  const cheapest = litreDrinks[0];
+export function LiterSection() {
+  const cheapest = literDrinks[0];
 
   return (
     <section
-      id="by-the-litre"
+      id="by-the-liter"
       className="scroll-mt-24 border-y border-border bg-muted/50 py-20 md:py-28"
     >
       <div className="container-page">
@@ -25,12 +25,12 @@ export function LitreSection() {
             </p>
             <h2 className="mt-4 text-balance font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
               Milk tea by the
-              <span className="italic text-accent"> full litre</span>
+              <span className="italic text-accent"> full liter</span>
             </h2>
             <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
-              A 16 oz cup is about 470 ml. A litre is more than double that — for
-              roughly one and a half times the price. It is the barkada order:
-              one jug, one bill, everybody drinks.
+              A 16 oz cup holds about 470 ml. A liter is more than double that,
+              for roughly one and a half times the price. That&apos;s the barkada
+              order: one jug, one bill, everybody drinks.
             </p>
 
             <div className="mt-8 flex flex-wrap items-end gap-x-8 gap-y-4">
@@ -39,15 +39,15 @@ export function LitreSection() {
                   {peso(cheapest.prices!["1L"]!)}
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  A full litre of {cheapest.name}
+                  A full liter of {cheapest.name}
                 </p>
               </div>
               <div>
                 <p className="font-display text-5xl leading-none text-foreground">
-                  {litreDrinks.length}
+                  {literDrinks.length}
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Flavours available by the litre
+                  Flavors available by the liter
                 </p>
               </div>
             </div>
@@ -66,8 +66,8 @@ export function LitreSection() {
 
           <Reveal delay={0.1}>
             <RevealGroup className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {litreDrinks.map((drink) => (
-                <LitreCard key={drink.id} item={drink} />
+              {literDrinks.map((drink) => (
+                <LiterCard key={drink.id} item={drink} />
               ))}
             </RevealGroup>
             <p className="mt-6 text-xs text-muted-foreground">

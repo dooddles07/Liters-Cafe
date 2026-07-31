@@ -8,7 +8,7 @@ import {
   type MenuItem,
   type SizeKey,
 } from "@/lib/menu";
-import { useFavourites } from "@/lib/use-favorites";
+import { useFavorites } from "@/lib/use-favorites";
 import { cn, peso } from "@/lib/utils";
 import { CafeImage } from "./cafe-image";
 import { revealItem } from "./reveal";
@@ -25,7 +25,7 @@ export function MenuCard({
   item: MenuItem;
   showImage?: boolean;
 }) {
-  const { has, toggle, ready } = useFavourites();
+  const { has, toggle, ready } = useFavorites();
   const saved = ready && has(item.id);
   const category = getCategory(item.category);
   const sizes = Object.keys(item.prices ?? {}) as SizeKey[];
