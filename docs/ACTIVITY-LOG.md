@@ -105,3 +105,85 @@ Tracked in `IMAGES-TO-ADD.md`:
 
 The dev server currently runs on **port 3001** — a stale process was holding
 3000 during the session. `pnpm dev` on a clean machine will use 3000.
+
+---
+
+## 2026-08-01 — Filled the blank image slots
+
+`public/images/` was empty, so all 13 photo slots rendered the placeholder tile.
+The owner chose **Unsplash stock** as an interim fill after being told plainly
+that showing other businesses' food under the Liters name misrepresents a real
+restaurant. Concern raised once, decision theirs, built in full.
+
+### Sourcing
+
+Unsplash returns **401 on everything unauthenticated** — `/s/photos`, individual
+photo pages, `/napi/search`, topic feeds. Only `images.unsplash.com` (the raw
+CDN) is open, so photo IDs cannot be discovered through the site. Pexels needs a
+key; Openverse is keyless but returns amateur CC-BY-SA Flickr shots.
+
+Approach used: assemble candidate IDs, fetch them from the CDN, and composite
+them into **labelled contact sheets with sharp** so 36 candidates could be judged
+in one image instead of 36 separate reads. Four sheets, ~120 candidates reviewed.
+
+`sharp` was added as an explicit devDependency — pnpm does not hoist Next's
+transitive copy to the top level, and Next wants it for production image
+optimisation regardless.
+
+### Three candidates rejected on sight
+
+This is why the visual pass was not optional. HTTP 200 says nothing about what a
+photo depicts.
+
+1. A cafe exterior with a legible **"N°15 COFFEE SHOP"** chalkboard and
+   **"Le Petit Palace"** signage — another business's branding, on the hero.
+2. A daytime shot of a **lighting store**, picked for the night-storefront slot.
+3. A **bar** with liquor shelving and neon, for the hero background of a family
+   cafe.
+
+A fourth error was mine: I took a photo ID from the wrong contact-sheet index and
+got a bonsai tree in the hero slot. Caught on re-verification.
+
+### A real photo landed
+
+The owner dropped `images/liters real san felipe branch place` (a 720×540 WebP)
+at the project root — the actual San Felipe frontage at night, plant wall,
+bistro tables, lit `liters` sign. Converted to JPEG and promoted into
+`storefront-glass.jpg`, replacing the stock. **One of the thirteen is now real.**
+
+Next's image optimiser served the stale bytes at first; `.next/cache/images`
+had to be cleared. Worth knowing when swapping any other file in dev.
+
+### Menu data touched
+
+Five items changed in `lib/menu.ts` — the only code change this session:
+
+- Four best-sellers (Wintermelon, Salted Caramel milk tea, Peach lemonade,
+  Salted Caramel frappe) had no `image`, so the Featured grid showed four
+  placeholder tiles among photos. Assigned category images.
+- `cordon-bleu` moved from `rice-meals.jpg` to `chicken-rice.jpg` — three
+  identical photos were sitting side by side in the grid, and cordon bleu is
+  breaded chicken anyway.
+
+### Verification
+
+- **Zero** fallback tiles remain on either page, at 1440 and 375. 33 real images.
+- Console clean, no failed image requests, no horizontal overflow.
+- Dish mapping spot-checked: Lasagna → `lasagna.jpg`, Pizza Supreme → `pizza.jpg`,
+  Caramel Macchiato → `coffee-lineup.jpg`, Cordon Bleu → `chicken-rice.jpg`,
+  Beef Nachos → `food-spread.jpg`.
+- Light and dark full-page screenshots reviewed; palette holds with photography.
+- **Revert test**: deleted `pizza.jpg`, confirmed that slot alone fell back to a
+  labelled placeholder with zero failed requests, then restored it. The owner's
+  swap path works.
+- `npx tsc --noEmit` clean, `pnpm build` passes, both routes still prerendered.
+
+### Known weak spots
+
+`longganisa.jpg` (sausage meatballs), `rice-meals.jpg` (Korean rice bowl) and
+`chicken-rice.jpg` (fried chicken on banana leaf) do not show the Filipino dishes
+they label. Unsplash has no usable Filipino food. Flagged at the top of both
+`IMAGES-TO-ADD.md` and `public/images/CREDITS.md` as first to replace.
+
+Repetition is also visible in the Featured grid — 13 images covering 93 menu
+items means several cards share a photo. It resolves itself as real photos land.
