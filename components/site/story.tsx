@@ -51,31 +51,31 @@ export function Story() {
           <Reveal delay={0.1} className="grid grid-cols-2 gap-4">
             <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-2xl">
               <CafeImage
-                src="interior-ceiling.jpg"
-                alt="Rows of wooden box lights over the dining room, with the plant wall behind"
+                src="storefront-night.jpg"
+                alt="The Liters Cafe storefront on San Felipe Road"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
-                label="Interior"
+                label="Storefront"
                 className="h-full w-full"
               />
             </div>
             <div className="relative aspect-square overflow-hidden rounded-2xl">
               <CafeImage
-                src="storefront-glass.jpg"
-                alt="Glass frontage of Liters Cafe with bistro tables outside"
+                src="storefront-inside.jpg"
+                alt="Inside Liters Cafe, tables under the wooden box lights"
                 fill
                 sizes="(max-width: 1024px) 50vw, 22vw"
-                label="Frontage"
+                label="Inside"
                 className="h-full w-full"
               />
             </div>
             <div className="relative aspect-square overflow-hidden rounded-2xl">
               <CafeImage
-                src="storefront-night.jpg"
-                alt="The lit Liters sign above the entrance at night"
+                src="plant-wall.jpg"
+                alt="The plant wall inside Liters Cafe"
                 fill
                 sizes="(max-width: 1024px) 50vw, 22vw"
-                label="At night"
+                label="Plant wall"
                 className="h-full w-full"
               />
             </div>

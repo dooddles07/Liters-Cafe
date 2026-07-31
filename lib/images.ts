@@ -20,9 +20,11 @@ export function readAvailableImages(): string[] {
 /** Every photo the site will use, and where it belongs. */
 export const expectedImages = [
   { file: "logo.png", use: "Header and footer wordmark" },
-  { file: "storefront-night.jpg", use: "Hero background - the lit facade" },
-  { file: "storefront-glass.jpg", use: "Story section" },
-  { file: "interior-ceiling.jpg", use: "Story section - wooden lights" },
+  { file: "storefront-night.jpg", use: "Hero background + Story top image - the storefront" },
+  { file: "storefront-inside.jpg", use: "Story section - dining room" },
+  { file: "plant-wall.jpg", use: "Story section - the plant wall" },
+  { file: "storefront-glass.jpg", use: "Gallery" },
+  { file: "interior-ceiling.jpg", use: "Gallery - wooden lights" },
   { file: "hero-drinks.jpg", use: "Hero float + frappe cards" },
   { file: "food-spread.jpg", use: "Featured - burger, pasta, nachos" },
   { file: "rice-meals.jpg", use: "Featured - rice meal plates" },
