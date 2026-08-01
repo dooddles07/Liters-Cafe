@@ -1,3 +1,6 @@
-# sharp is Next.js's image optimiser and needs its native build step.
+# Native build steps we allow.
+# sharp: Next.js's image optimizer.
+# unrs-resolver: native resolver pulled in by eslint-config-next.
 allowBuilds:
   sharp: true
+  unrs-resolver: true

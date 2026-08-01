@@ -16,8 +16,8 @@ export default function NotFound() {
         That page isn&apos;t on the menu.
       </h1>
       <p className="mt-4 max-w-md text-pretty leading-relaxed text-muted-foreground">
-        The page you're looking for doesn't exist. Head back to the homepage
-        or check out the full menu.
+        The page you&apos;re looking for doesn&apos;t exist. Head back to the
+        homepage or check out the full menu.
       </p>
       <div className="mt-7 flex flex-wrap justify-center gap-3">
         <ButtonLink href="/">Back home</ButtonLink>
