@@ -19,7 +19,6 @@ export function readAvailableImages(): string[] {
 
 /** Every photo the site will use, and where it belongs. */
 export const expectedImages = [
-  { file: "logo.png", use: "Header and footer wordmark" },
   { file: "storefront-night.jpg", use: "Hero background + Story top image - the storefront" },
   { file: "storefront-inside.jpg", use: "Story section - dining room" },
   { file: "plant-wall.jpg", use: "Story section - the plant wall" },
