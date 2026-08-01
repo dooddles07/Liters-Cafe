@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { menuStats } from "@/lib/menu";
-import { messengerLink, site } from "@/lib/site";
+import { messengerLink, orderMessage, site } from "@/lib/site";
 import { ButtonLink } from "@/components/ui/button";
 import { MenuBrowser } from "@/components/site/menu-browser";
 import { OpenBadge } from "@/components/site/open-badge";
@@ -26,7 +26,7 @@ export default function MenuPage() {
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
           <ButtonLink
-            href={messengerLink("Hi Liters! I'd like to place an order.")}
+            href={messengerLink(orderMessage)}
             target="_blank"
             rel="noopener noreferrer"
           >

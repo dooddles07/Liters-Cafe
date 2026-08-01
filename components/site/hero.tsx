@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import { ButtonLink, buttonVariants } from "@/components/ui/button";
-import { messengerLink, site } from "@/lib/site";
+import { messengerLink, orderMessage, site } from "@/lib/site";
 import { menuStats } from "@/lib/menu";
 import { CafeImage } from "./cafe-image";
 import { EASE } from "./reveal";
@@ -108,7 +108,7 @@ export function Hero() {
           className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <ButtonLink
-            href={messengerLink("Hi Liters! I'd like to place an order.")}
+            href={messengerLink(orderMessage)}
             target="_blank"
             rel="noopener noreferrer"
             size="lg"

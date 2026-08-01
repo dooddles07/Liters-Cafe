@@ -38,6 +38,9 @@ export const mapEmbedUrl = `https://www.google.com/maps?q=${mapQuery}&output=emb
 
 export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
 
+/** Default message for the generic "Order on Messenger" CTAs. */
+export const orderMessage = "Hi Liters! I'd like to place an order.";
+
 /** Keeps the generated m.me URL well under browser/server URL length limits. */
 const MAX_MESSAGE_LENGTH = 1500;
 

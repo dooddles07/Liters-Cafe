@@ -4,6 +4,7 @@ import { directionsUrl, fullAddress, mapEmbedUrl, site } from "@/lib/site";
 import { ButtonLink } from "@/components/ui/button";
 import { OpenBadge } from "./open-badge";
 import { Reveal } from "./reveal";
+import { SectionHeading } from "./section-heading";
 
 export function Location() {
   return (
@@ -11,12 +12,9 @@ export function Location() {
       <div className="container-page">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
           <Reveal>
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              Come by
-            </p>
-            <h2 className="mt-4 text-balance font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+            <SectionHeading eyebrow="Come by">
               Find us on San Felipe Road
-            </h2>
+            </SectionHeading>
 
             <OpenBadge className="mt-6" />
 

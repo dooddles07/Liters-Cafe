@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
-import { messengerLink } from "@/lib/site";
+import { messengerLink, orderMessage } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { OpenBadge } from "./open-badge";
 import { Wordmark } from "./wordmark";
@@ -71,7 +71,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <OpenBadge className="hidden md:inline-flex" />
           <ButtonLink
-            href={messengerLink("Hi Liters! I'd like to place an order.")}
+            href={messengerLink(orderMessage)}
             target="_blank"
             rel="noopener noreferrer"
             size="sm"
@@ -119,7 +119,7 @@ export function Header() {
               <div className="flex flex-col gap-3 pt-5">
                 <OpenBadge className="self-start md:hidden" />
                 <ButtonLink
-                  href={messengerLink("Hi Liters! I'd like to place an order.")}
+                  href={messengerLink(orderMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full"

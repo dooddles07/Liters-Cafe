@@ -4,6 +4,7 @@ import { menuStats, popularItems } from "@/lib/menu";
 import { buttonVariants } from "@/components/ui/button";
 import { MenuCard } from "./menu-card";
 import { Reveal, RevealGroup } from "./reveal";
+import { SectionHeading } from "./section-heading";
 
 export function Featured() {
   const featured = popularItems();
@@ -13,12 +14,9 @@ export function Featured() {
       <div className="container-page">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              What people order
-            </p>
-            <h2 className="mt-4 text-balance font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+            <SectionHeading eyebrow="What people order">
               The regulars
-            </h2>
+            </SectionHeading>
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
               Pulled from what the reviews keep naming and what leaves the
               kitchen most.

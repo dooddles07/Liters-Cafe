@@ -3,6 +3,7 @@ import { ratingBreakdown, reviews } from "@/lib/reviews";
 import { site } from "@/lib/site";
 import { ReviewsCarousel } from "@/components/ui/reviews-carousel";
 import { Reveal } from "./reveal";
+import { SectionHeading } from "./section-heading";
 
 export function Reviews() {
   const total = ratingBreakdown.reduce((sum, r) => sum + r.count, 0);
@@ -15,12 +16,9 @@ export function Reviews() {
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
           <Reveal>
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              What people say
-            </p>
-            <h2 className="mt-4 text-balance font-display text-3xl leading-tight tracking-tight sm:text-4xl">
+            <SectionHeading eyebrow="What people say" size="md">
               Rated {site.rating.value} on Google
-            </h2>
+            </SectionHeading>
 
             <div className="mt-7 flex items-center gap-4">
               <span className="font-display text-6xl leading-none">

@@ -3,6 +3,7 @@ import { peso } from "@/lib/utils";
 import { CafeImage } from "./cafe-image";
 import { Reveal, RevealGroup } from "./reveal";
 import { LiterCard } from "./liter-card";
+import { SectionHeading } from "./section-heading";
 
 /** Everything on the board that comes in a full liter. */
 const literDrinks = items
@@ -20,13 +21,10 @@ export function LiterSection() {
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
           <Reveal>
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              The name is the point
-            </p>
-            <h2 className="mt-4 text-balance font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+            <SectionHeading eyebrow="The name is the point">
               Milk tea by the
               <span className="italic text-accent"> full liter</span>
-            </h2>
+            </SectionHeading>
             <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
               A 16 oz cup holds about 470 ml. A liter is more than double that,
               for roughly one and a half times the price. That&apos;s the barkada

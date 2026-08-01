@@ -1,5 +1,6 @@
 import { CafeImage } from "./cafe-image";
 import { Reveal } from "./reveal";
+import { SectionHeading } from "./section-heading";
 
 /**
  * Adapted from the 21st.dev Masonry Grid. Kept its CSS scroll-driven
@@ -25,12 +26,9 @@ export function Gallery() {
     <section id="gallery" className="scroll-mt-24 py-20 md:py-28">
       <div className="container-page">
         <Reveal className="max-w-xl">
-          <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            The room and the food
-          </p>
-          <h2 className="mt-4 text-balance font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+          <SectionHeading eyebrow="The room and the food">
             Have a look around
-          </h2>
+          </SectionHeading>
         </Reveal>
       </div>
 

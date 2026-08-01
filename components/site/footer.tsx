@@ -42,7 +42,9 @@ export function Footer() {
 
           {columns.map((column) => (
             <nav key={column.heading} aria-label={column.heading}>
-              <h2 className="font-display text-base">{column.heading}</h2>
+              <p className="font-display text-base" aria-hidden="true">
+                {column.heading}
+              </p>
               <ul className="mt-4 space-y-2.5">
                 {column.links.map((link) => (
                   <li key={link.href}>
