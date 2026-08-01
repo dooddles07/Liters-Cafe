@@ -24,8 +24,16 @@ export function Contact() {
   const [message, setMessage] = useState("");
   const [touched, setTouched] = useState(false);
 
-  const nameMissing = touched && name.trim().length === 0;
   const needsBooking = reason !== "Ask a question";
+
+  const peopleTrimmed = people.trim();
+  const peopleOk = !needsBooking || /^[1-9]\d?$/.test(peopleTrimmed);
+  const whenOk = !needsBooking || when.trim().length > 0;
+  const formValid = name.trim().length > 0 && whenOk && peopleOk;
+
+  const nameMissing = touched && name.trim().length === 0;
+  const whenMissing = touched && needsBooking && when.trim().length === 0;
+  const peopleInvalid = touched && needsBooking && !peopleOk;
 
   const compose = () =>
     [
@@ -41,7 +49,7 @@ export function Contact() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     setTouched(true);
-    if (!name.trim()) return;
+    if (!formValid) return;
     window.open(messengerLink(compose()), "_blank", "noopener,noreferrer");
   };
 
@@ -108,14 +116,18 @@ export function Contact() {
                     placeholder="Saturday, 7 PM"
                     value={when}
                     onChange={setWhen}
+                    required
+                    error={whenMissing ? "Let us know when you're coming." : null}
                   />
                   <Input
                     id="people"
                     label="How many people"
                     placeholder="6"
                     value={people}
-                    onChange={setPeople}
+                    onChange={(v) => setPeople(v.replace(/[^\d]/g, "").slice(0, 2))}
                     inputMode="numeric"
+                    required
+                    error={peopleInvalid ? "Enter a party size (1-99)." : null}
                   />
                 </div>
               )}
@@ -133,6 +145,7 @@ export function Contact() {
                 <textarea
                   id="message"
                   rows={4}
+                  maxLength={500}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Celebrating a birthday, need a quiet corner, anything at all."
