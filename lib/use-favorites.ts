@@ -1,18 +1,44 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 
 const KEY = "liters:favorites";
 const EVENT = "liters:favorites-changed";
 
+let cache: string[] = [];
+let cacheRaw: string | null = null;
+
+/** Reparses only when the underlying value actually changed, so the
+ *  snapshot reference stays stable between renders. */
+function getSnapshot(): string[] {
+  const raw = window.localStorage.getItem(KEY);
+  if (raw === cacheRaw) return cache;
+  cacheRaw = raw;
+  try {
+    cache = raw ? (JSON.parse(raw) as string[]) : [];
+  } catch {
+    cache = [];
+  }
+  return cache;
+}
+
+const emptySnapshot: string[] = [];
+function getServerSnapshot(): string[] {
+  return emptySnapshot;
+}
+
+function subscribe(callback: () => void) {
+  window.addEventListener(EVENT, callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    window.removeEventListener(EVENT, callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
 function read(): string[] {
   if (typeof window === "undefined") return [];
-  try {
-    const raw = window.localStorage.getItem(KEY);
-    return raw ? (JSON.parse(raw) as string[]) : [];
-  } catch {
-    return [];
-  }
+  return getSnapshot();
 }
 
 /**
@@ -21,21 +47,12 @@ function read(): string[] {
  * event, and across tabs through `storage`.
  */
 export function useFavorites() {
-  const [ids, setIds] = useState<string[]>([]);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setIds(read());
-    setReady(true);
-
-    const sync = () => setIds(read());
-    window.addEventListener(EVENT, sync);
-    window.addEventListener("storage", sync);
-    return () => {
-      window.removeEventListener(EVENT, sync);
-      window.removeEventListener("storage", sync);
-    };
-  }, []);
+  const ids = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const ready = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
 
   const toggle = useCallback((id: string) => {
     const next = read().includes(id)
