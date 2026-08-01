@@ -7,7 +7,7 @@ import { ImageAvailabilityProvider } from "@/components/site/image-context";
 import { MotionProvider } from "@/components/site/motion-provider";
 import { readAvailableImages } from "@/lib/images";
 import { schemaOpeningHours } from "@/lib/hours";
-import { fullAddress, site } from "@/lib/site";
+import { fullAddress, site, siteUrl } from "@/lib/site";
 
 const karla = Karla({
   subsets: ["latin"],
@@ -22,6 +22,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${site.legalName} · ${site.tagline}`,
     template: `%s · ${site.legalName}`,
@@ -40,6 +41,7 @@ export const metadata: Metadata = {
     description: site.description,
     locale: "en_PH",
     type: "website",
+    images: [{ url: "/images/storefront-glass.jpg", width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

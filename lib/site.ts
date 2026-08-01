@@ -1,3 +1,5 @@
+export const siteUrl = "https://liters-cafe.vercel.app";
+
 export const site = {
   name: "Liters",
   legalName: "Liters Cafe",
@@ -17,7 +19,6 @@ export const site = {
   geo: { lat: 13.6218, lng: 123.1948 },
 
   facebook: "https://www.facebook.com/litersnaga/",
-  /** Derived from the Facebook page slug. Verify this resolves before launch. */
   messenger: "https://m.me/litersnaga",
 
   rating: { value: 4.5, count: 16 },
@@ -37,8 +38,15 @@ export const mapEmbedUrl = `https://www.google.com/maps?q=${mapQuery}&output=emb
 
 export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
 
+/** Keeps the generated m.me URL well under browser/server URL length limits. */
+const MAX_MESSAGE_LENGTH = 1500;
+
 /** Opens Messenger with the message already typed out. */
 export function messengerLink(message?: string) {
   if (!message) return site.messenger;
-  return `${site.messenger}?text=${encodeURIComponent(message)}`;
+  const trimmed =
+    message.length > MAX_MESSAGE_LENGTH
+      ? `${message.slice(0, MAX_MESSAGE_LENGTH - 1).trimEnd()}…`
+      : message;
+  return `${site.messenger}?text=${encodeURIComponent(trimmed)}`;
 }
