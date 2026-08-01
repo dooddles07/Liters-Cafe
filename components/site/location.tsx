@@ -1,7 +1,8 @@
-import { Facebook, MapPin, Navigation } from "lucide-react";
+import { MapPin, Navigation } from "lucide-react";
 import { dayNames, formatTime, hours } from "@/lib/hours";
 import { directionsUrl, fullAddress, mapEmbedUrl, site } from "@/lib/site";
 import { ButtonLink } from "@/components/ui/button";
+import { FacebookIcon } from "./icons";
 import { OpenBadge } from "./open-badge";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
@@ -45,7 +46,7 @@ export function Location() {
                 rel="noopener noreferrer"
                 variant="outline"
               >
-                <Facebook className="size-4" />
+                <FacebookIcon className="size-4" />
                 Facebook page
               </ButtonLink>
             </div>

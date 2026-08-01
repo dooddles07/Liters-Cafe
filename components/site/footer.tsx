@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Facebook, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { site } from "@/lib/site";
+import { FacebookIcon } from "./icons";
 import { OpenBadge } from "./open-badge";
 import { Wordmark } from "./wordmark";
 
@@ -74,7 +75,7 @@ export function Footer() {
               aria-label="Liters Cafe on Facebook"
               className="grid size-11 place-items-center rounded-full border border-primary-foreground/20 transition-colors hover:bg-primary-foreground/10"
             >
-              <Facebook className="size-4" aria-hidden="true" />
+              <FacebookIcon className="size-4" />
             </a>
             <a
               href={site.messenger}
